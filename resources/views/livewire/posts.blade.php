@@ -1,4 +1,9 @@
 <div class="p-10 overflow-x-auto">
+    <div x-data="{ count: 0 }">
+        <button x-on:click="count--">Decrement</button>
+        <span x-text="count"></span>
+        <button x-on:click="count++">Increment</button>
+    </div>
     <div class="flex items-center justify-between">
         <h1 class="mb-5 text-xl font-semibold">
             Some Posts
