@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Posts;
+use App\Livewire\Todos;
+use App\Livewire\Counter;
+use App\Livewire\FormNewPost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', Todos::class);
+Route::get('/counter', Counter::class);
+Route::get('/posts', Posts::class);
+Route::get('/create-new-post', FormNewPost::class);

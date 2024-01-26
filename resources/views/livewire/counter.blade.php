@@ -1,4 +1,4 @@
-<div>
+<div class="p-10">
     <h1>
         Counter is : {{ $counter }}
     </h1>
