@@ -15,4 +15,9 @@ class Post extends Model
         $this->is_archived = true;
         $this->save();
     }
+    public function unarchive()
+    {
+        $this->is_archived = false;
+        $this->save();
+    }
 }
