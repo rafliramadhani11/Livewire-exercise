@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use DateTime;
 use App\Models\Post;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
@@ -41,6 +43,9 @@ class FormNewPost extends Component
     }
     public function render()
     {
-        return view('livewire.form-new-post');
+        return view(
+            'livewire.form-new-post',
+
+        );
     }
 }
