@@ -5,21 +5,38 @@ namespace App\Livewire;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Validator;
 
 class FormNewPost extends Component
 {
-    #[Rule('required', message: 'Isi Title nya dlu broo')]
+    // #[Validate([
+    //     'title' => 'required|min:5',
+    // ], message: [
+    //     'title.required' => 'The title is missing.',
+    //     'title.min' => 'The title is too short. It must be at least :min characters.',
+    // ])]
+
+    // #[Validate([
+    //     'content' => 'required|min:10',
+    // ], message: [
+    //     'content.required' => 'The content is missing.',
+    //     'content.min' => 'The content is too short. It must be at least :min characters.',
+    // ])]
     public $title = '';
-    #[Rule('required', message: 'Isi Content nya dlu broo')]
     public $content = '';
 
     public function save()
     {
-        $this->validate();
-        Post::create([
-            'title' => $this->title,
-            'content' => $this->content,
-        ]);
+        $validated = Validator::make(
+            ['title' => $this->title, 'content' => $this->content],
+            ['title' => 'required|min:3', 'content' => 'required|min:5'],
+            [
+                'required' => 'Bro kamu melupakan :attribute',
+                'min' => ':attribute kau minimal harus :min'
+            ]
+        )->validate();
+        Post::create($validated);
         $this->redirect('/posts');
     }
     public function render()

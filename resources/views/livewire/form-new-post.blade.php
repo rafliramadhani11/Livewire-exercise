@@ -4,14 +4,14 @@
         <form wire:submit="save">
             <div>
                 <p>Title : </p>
-                <input wire:model="title" type="text" class="inline-block px-3 py-1 border border-gray-900 rounded-md shadow-sm ms-3">
+                <input wire:model.live="title" type="text" class="inline-block px-3 py-1 border border-gray-900 rounded-md shadow-sm ms-3">
                 @error('title')
-                <span> {{ $message }} </span>
+                <em> {{ $message }} </em>
                 @enderror
             </div>
             <div>
                 <p>Content : </p>
-                <input wire:model="content" type="text" class="px-3 py-1 border border-gray-900 rounded-md shadow-sm ms-3">
+                <input wire:model.live="content" type="text" class="px-3 py-1 border border-gray-900 rounded-md shadow-sm ms-3">
                 @error('content')
                 <em class="inline"> {{ $message }} </em>
                 @enderror
