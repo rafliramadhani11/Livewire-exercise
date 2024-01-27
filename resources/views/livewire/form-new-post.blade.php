@@ -24,6 +24,8 @@
             </div>
             <div class="mt-5">
                 <button type="submit" class="px-5 py-1 bg-gray-200 rounded-md shadow-sm ms-3">Save</button>
+
+                <span wire:loading.delay>Saving...</span>
             </div>
         </form>
     </div>
